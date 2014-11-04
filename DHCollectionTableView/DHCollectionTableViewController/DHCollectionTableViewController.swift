@@ -23,6 +23,31 @@ class DHCollectionTableViewController: UITableViewController {
         self.sourceArray = NSArray(array: source)
         self.contentOffsetDictionary = NSMutableDictionary()
     }
+    
+    override func loadView() {
+        super.loadView()
+        self.tableView.registerClass(DHCollectionTableViewCell.self, forCellReuseIdentifier: reuseTableViewCellIdentifier)
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        let numberOfTableViewRows: NSInteger = 20
+        let numberOfCollectionViewCells: NSInteger = 15
+        
+        var mutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
+        for var tableViewRow = 0; tableViewRow < numberOfTableViewRows; ++tableViewRow {
+            var colorArray: NSMutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
+            for var collectionViewItem = 0; collectionViewItem < numberOfCollectionViewCells; ++collectionViewItem {
+                let red = CGFloat(drand48())
+                let green = CGFloat(drand48())
+                let blue = CGFloat(drand48())
+                let color: UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+                colorArray .addObject(color)
+            }
+            mutableArray .addObject(colorArray)
+        }
+        
+        self.sourceArray = NSArray(array: mutableArray)
+        self.contentOffsetDictionary = NSMutableDictionary()
+    }
 }
 // MARK: - Table view data source
 extension DHCollectionTableViewController {
