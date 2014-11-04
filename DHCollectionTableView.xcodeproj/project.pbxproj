@@ -15,6 +15,9 @@
 		5BB08B1D1A07721B0032624E /* DHCollectionTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB08B1C1A07721B0032624E /* DHCollectionTableViewTests.swift */; };
 		5BB08B281A0774340032624E /* DHCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB08B271A0774340032624E /* DHCollectionTableViewController.swift */; };
 		5BDF0BE61A07B34D0099F553 /* DHCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF0BE51A07B34D0099F553 /* DHCollectionTableViewCell.swift */; };
+		5BEDE5EB1A08EA5400B0E924 /* selectedItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDE5E81A08EA5400B0E924 /* selectedItem.png */; };
+		5BEDE5EC1A08EA5400B0E924 /* tableCollection.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDE5E91A08EA5400B0E924 /* tableCollection.gif */; };
+		5BEDE5ED1A08EA5400B0E924 /* mainView.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDE5EA1A08EA5400B0E924 /* mainView.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		5BB08B1C1A07721B0032624E /* DHCollectionTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHCollectionTableViewTests.swift; sourceTree = "<group>"; };
 		5BB08B271A0774340032624E /* DHCollectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHCollectionTableViewController.swift; sourceTree = "<group>"; };
 		5BDF0BE51A07B34D0099F553 /* DHCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		5BEDE5E81A08EA5400B0E924 /* selectedItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedItem.png; sourceTree = "<group>"; };
+		5BEDE5E91A08EA5400B0E924 /* tableCollection.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tableCollection.gif; sourceTree = "<group>"; };
+		5BEDE5EA1A08EA5400B0E924 /* mainView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainView.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		5BB08B031A07721B0032624E /* DHCollectionTableView */ = {
 			isa = PBXGroup;
 			children = (
+				5BEDE5E71A08E82000B0E924 /* screenshots */,
 				5BB08B261A0773860032624E /* DHCollectionTableViewController */,
 				5BB08B061A07721B0032624E /* AppDelegate.swift */,
 				5BB08B081A07721B0032624E /* ViewController.swift */,
@@ -124,6 +131,16 @@
 				5BDF0BE51A07B34D0099F553 /* DHCollectionTableViewCell.swift */,
 			);
 			path = DHCollectionTableViewController;
+			sourceTree = "<group>";
+		};
+		5BEDE5E71A08E82000B0E924 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDE5E81A08EA5400B0E924 /* selectedItem.png */,
+				5BEDE5E91A08EA5400B0E924 /* tableCollection.gif */,
+				5BEDE5EA1A08EA5400B0E924 /* mainView.png */,
+			);
+			path = screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +225,9 @@
 			files = (
 				5BB08B0C1A07721B0032624E /* Main.storyboard in Resources */,
 				5BB08B111A07721B0032624E /* LaunchScreen.xib in Resources */,
+				5BEDE5EC1A08EA5400B0E924 /* tableCollection.gif in Resources */,
+				5BEDE5ED1A08EA5400B0E924 /* mainView.png in Resources */,
+				5BEDE5EB1A08EA5400B0E924 /* selectedItem.png in Resources */,
 				5BB08B0E1A07721B0032624E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let viewController = DHCollectionTableViewController(source: mutableArray)
+        viewController.title = "TableView嵌套CollectionView"
         self.root = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = self.root
         self.window?.makeKeyAndVisible()
