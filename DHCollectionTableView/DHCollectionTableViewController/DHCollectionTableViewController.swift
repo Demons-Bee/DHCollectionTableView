@@ -32,12 +32,12 @@ extension DHCollectionTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseTableViewCellIdentifier, forIndexPath: indexPath) as DHCollectionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseTableViewCellIdentifier, forIndexPath: indexPath) as! DHCollectionTableViewCell
         return cell
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let collectionCell: DHCollectionTableViewCell = cell as DHCollectionTableViewCell
+        let collectionCell: DHCollectionTableViewCell = cell as! DHCollectionTableViewCell
         collectionCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
         let index: NSInteger = collectionCell.collectionView.tag
         let value: AnyObject? = self.contentOffsetDictionary.valueForKey(index.description)
@@ -53,20 +53,20 @@ extension DHCollectionTableViewController {
 extension DHCollectionTableViewController:UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let collectionViewArray: NSArray = self.sourceArray[collectionView.tag] as NSArray
+        let collectionViewArray: NSArray = self.sourceArray[collectionView.tag] as! NSArray
         return collectionViewArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseCollectionViewCellIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseCollectionViewCellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
         
-        let collectionViewArray = self.sourceArray[collectionView.tag] as NSArray
+        let collectionViewArray = self.sourceArray[collectionView.tag] as! NSArray
         cell.backgroundColor = collectionViewArray[indexPath.item] as? UIColor
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let itemColor: UIColor = self.sourceArray[collectionView.tag][indexPath.item] as UIColor
+        let itemColor: UIColor = self.sourceArray[collectionView.tag][indexPath.item] as! UIColor
 //        let vc = UIViewController()
 //        vc.view.backgroundColor = itemColor
 //        vc.title = "Line-->\(collectionView.tag)"
@@ -87,7 +87,7 @@ extension DHCollectionTableViewController:UICollectionViewDataSource,UICollectio
             return
         }
         let horizontalOffset: CGFloat = scrollView.contentOffset.x
-        let collectionView: UICollectionView = scrollView as UICollectionView
+        let collectionView: UICollectionView = scrollView as! UICollectionView
         self.contentOffsetDictionary.setValue(horizontalOffset, forKey: collectionView.tag.description)
     }
 }
