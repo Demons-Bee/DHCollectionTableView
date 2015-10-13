@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let numberOfTableViewRows: NSInteger = 20
         let numberOfCollectionViewCells: NSInteger = 15
         
-        var mutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
+        let mutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
         for var tableViewRow = 0; tableViewRow < numberOfTableViewRows; ++tableViewRow {
-            var colorArray: NSMutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
+            let colorArray: NSMutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
             for var collectionViewItem = 0; collectionViewItem < numberOfCollectionViewCells; ++collectionViewItem {
                 let red = CGFloat(drand48())
                 let green = CGFloat(drand48())
