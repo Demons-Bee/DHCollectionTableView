@@ -16,7 +16,7 @@ class DHIndexedCollectionView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
@@ -28,20 +28,20 @@ class DHCollectionTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(4, 5, 4, 5)
         layout.minimumLineSpacing = 5
         layout.itemSize = CGSizeMake(91, 91)
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         self.collectionView = DHIndexedCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellIdentifier as! String)
+        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellIdentifier as String)
         self.collectionView.backgroundColor = UIColor.lightGrayColor()
         self.collectionView.showsHorizontalScrollIndicator = false
         self.contentView.addSubview(self.collectionView)
         self.layoutMargins = UIEdgeInsetsMake(10, 0, 10, 0)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

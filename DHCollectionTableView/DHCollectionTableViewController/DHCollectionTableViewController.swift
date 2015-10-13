@@ -58,7 +58,7 @@ extension DHCollectionTableViewController:UICollectionViewDataSource,UICollectio
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseCollectionViewCellIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseCollectionViewCellIdentifier, forIndexPath: indexPath) 
         
         let collectionViewArray = self.sourceArray[collectionView.tag] as! NSArray
         cell.backgroundColor = collectionViewArray[indexPath.item] as? UIColor
