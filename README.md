@@ -8,7 +8,7 @@ DHCollectionTableView
 How to use
 ==========
   
-    // source就是要显示的数据,图片什么的,随意啦
+    // source就是要显示的数据,图片什么的,随意啦, format: Array\<Array\<AnyObject>\>
     let viewController = DHCollectionTableViewController(source: mutableArray)
     self.root = UINavigationController(rootViewController: viewController)
 
