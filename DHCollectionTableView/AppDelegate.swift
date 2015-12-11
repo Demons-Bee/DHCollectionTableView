@@ -12,35 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  var root: UINavigationController?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     
-    let numberOfTableViewRows: NSInteger = 2
-    let numberOfCollectionViewCells: NSInteger = 3
+    let numberOfTableViewRows: NSInteger = 20
+    let numberOfCollectionViewCells: NSInteger = 30
     
-    let mutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
-    
-    for var tableViewRow = 0; tableViewRow < numberOfTableViewRows; ++tableViewRow {
-      let colorArray: NSMutableArray = NSMutableArray(capacity: numberOfCollectionViewCells)
-      for var collectionViewItem = 0; collectionViewItem < numberOfCollectionViewCells; ++collectionViewItem {
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        let color: UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        colorArray .addObject(color)
+    var source = Array<AnyObject>()
+    for _ in 0..<numberOfTableViewRows {
+      var colorArray = Array<UIColor>()
+      for _ in 0..<numberOfCollectionViewCells {
+        let color = UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
+        colorArray.append(color)
       }
-      mutableArray .addObject(colorArray)
+      source.append(colorArray)
     }
-    
-    print(mutableArray)
+
     // the source format is Array<Array<AnyObject>>
-    let viewController = DHCollectionTableViewController(source: mutableArray)
+    let viewController = DHCollectionTableViewController(source: source)
     viewController.title = "TableView嵌套CollectionView"
-    self.root = UINavigationController(rootViewController: viewController)
-    self.window?.rootViewController = self.root
-    self.window?.makeKeyAndVisible()
+    window?.rootViewController = UINavigationController(rootViewController: viewController)
+    window?.makeKeyAndVisible()
     return true
   }
   
