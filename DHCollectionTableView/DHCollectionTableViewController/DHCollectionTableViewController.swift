@@ -68,7 +68,7 @@ extension DHCollectionTableViewController:UICollectionViewDataSource,UICollectio
   }
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    let itemColor: UIColor = self.sourceArray[collectionView.tag][indexPath.item] as! UIColor
+    let itemColor: UIColor = (sourceArray[collectionView.tag] as! Array<AnyObject>)[indexPath.item] as! UIColor
 
     let alert = UIAlertController(title: "第\(collectionView.tag)行", message: "第\(indexPath.item)个元素", preferredStyle: UIAlertControllerStyle.Alert)
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
