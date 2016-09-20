@@ -10,7 +10,7 @@ import UIKit
 
 class DHIndexedCollectionView: UICollectionView {
   
-  var indexPath: NSIndexPath!
+  var indexPath: IndexPath!
   
   override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
     super.init(frame: frame, collectionViewLayout: layout)
@@ -22,23 +22,27 @@ class DHIndexedCollectionView: UICollectionView {
 }
 
 let collectionViewCellIdentifier: NSString = "CollectionViewCell"
+
 class DHCollectionTableViewCell: UITableViewCell {
   
   var collectionView: DHIndexedCollectionView!
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.sectionInset = UIEdgeInsetsMake(4, 5, 4, 5)
+    layout.sectionInset = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
     layout.minimumLineSpacing = 5
-    layout.itemSize = CGSizeMake(91, 91)
-    layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
-    self.collectionView = DHIndexedCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-    self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellIdentifier as String)
-    self.collectionView.backgroundColor = UIColor.lightGrayColor()
-    self.collectionView.showsHorizontalScrollIndicator = false
-    self.contentView.addSubview(self.collectionView)
-    self.layoutMargins = UIEdgeInsetsMake(10, 0, 10, 0)
+    layout.itemSize = CGSize(width: 91, height: 91)
+    layout.scrollDirection = .horizontal
+
+    collectionView = DHIndexedCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+    collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellIdentifier as String)
+    collectionView.backgroundColor = .lightGray
+    collectionView.showsHorizontalScrollIndicator = false
+    
+    contentView.addSubview(self.collectionView)
+    layoutMargins = UIEdgeInsetsMake(10, 0, 10, 0)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -48,21 +52,21 @@ class DHCollectionTableViewCell: UITableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()
     let frame = self.contentView.bounds
-    self.collectionView.frame = CGRectMake(0, 0.5, frame.size.width, frame.size.height - 1)
+    collectionView.frame = CGRect(x: 0, y: 0.5, width: frame.size.width, height: frame.size.height - 1)
   }
   
-  func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: protocol<UICollectionViewDelegate,UICollectionViewDataSource>, index: NSInteger) {
-    self.collectionView.dataSource = delegate
-    self.collectionView.delegate = delegate
-    self.collectionView.tag = index
-    self.collectionView.reloadData()
+  func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UICollectionViewDelegate & UICollectionViewDataSource, index: NSInteger) {
+    collectionView.dataSource = delegate
+    collectionView.delegate = delegate
+    collectionView.tag = index
+    collectionView.reloadData()
   }
   
-  func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: protocol<UICollectionViewDelegate,UICollectionViewDataSource>, indexPath: NSIndexPath) {
-    self.collectionView.dataSource = delegate
-    self.collectionView.delegate = delegate
-    self.collectionView.indexPath = indexPath
-    self.collectionView.tag = indexPath.section
-    self.collectionView.reloadData()
+  func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UICollectionViewDelegate & UICollectionViewDataSource, indexPath: IndexPath) {
+    collectionView.dataSource = delegate
+    collectionView.delegate = delegate
+    collectionView.indexPath = indexPath
+    collectionView.tag = indexPath.section
+    collectionView.reloadData()
   }
 }
