@@ -1,8 +1,8 @@
 DHCollectionTableView
 =====================
-####用Swift实现UITableView内嵌套UICollectionView的效果如下:
+#### 用Swift实现UITableView内嵌套UICollectionView的效果如下:
 <img src="./DHCollectionTableView/screenshots/tableCollection.gif" /></br>
-####不用担心每个item的索引获取
+#### 不用担心每个item的索引获取
 <img src="./DHCollectionTableView/screenshots/selectedItem.png" /></br>
 
 How to use
