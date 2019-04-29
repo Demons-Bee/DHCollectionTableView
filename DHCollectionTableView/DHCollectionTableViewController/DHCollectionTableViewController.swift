@@ -19,7 +19,7 @@ class DHCollectionTableViewController: UITableViewController {
   convenience init(source: Array<AnyObject>) {
     self.init()
     tableView.register(DHCollectionTableViewCell.self, forCellReuseIdentifier: reuseTableViewCellIdentifier)
-    tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+		tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     sourceArray = source
     contentOffsetDictionary = Dictionary<NSObject,AnyObject>()
   }
@@ -70,8 +70,8 @@ extension DHCollectionTableViewController:UICollectionViewDataSource,UICollectio
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let itemColor: UIColor = (sourceArray[collectionView.tag] as! Array<AnyObject>)[(indexPath as NSIndexPath).item] as! UIColor
 
-    let alert = UIAlertController(title: "第\(collectionView.tag)行", message: "第\((indexPath as NSIndexPath).item)个元素", preferredStyle: UIAlertControllerStyle.alert)
-    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+		let alert = UIAlertController(title: "第\(collectionView.tag)行", message: "第\((indexPath as NSIndexPath).item)个元素", preferredStyle: UIAlertController.Style.alert)
+		alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
     let v: UIView = UIView(frame: CGRect(x: 10, y: 20, width: 50, height: 50))
     v.backgroundColor = itemColor
     alert.view.addSubview(v)

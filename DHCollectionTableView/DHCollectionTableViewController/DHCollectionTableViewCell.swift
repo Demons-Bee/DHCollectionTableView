@@ -27,7 +27,7 @@ class DHCollectionTableViewCell: UITableViewCell {
   
   var collectionView: DHIndexedCollectionView!
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -42,7 +42,7 @@ class DHCollectionTableViewCell: UITableViewCell {
     collectionView.showsHorizontalScrollIndicator = false
     
     contentView.addSubview(self.collectionView)
-    layoutMargins = UIEdgeInsetsMake(10, 0, 10, 0)
+		layoutMargins = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
   }
   
   required init?(coder aDecoder: NSCoder) {
